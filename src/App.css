@@ -182,3 +182,73 @@
     border-right-color: var(--border);
   }
 }
+
+td {
+  padding: 8px;
+  border: 1px solid var(--border);
+  height: 70px;
+}
+
+td.id {
+  text-align: center;
+  width: 25px;
+}
+
+td.cim {
+  text-align: left;
+  width: 250px;
+}
+
+td.szerzo {
+  text-align: left;
+  width: 175px;
+}
+
+td.darabszam {
+  text-align: center;
+  width: 80px;
+}
+
+td.ar {
+  text-align: right;
+  width: 100px;
+}
+
+td.gomb {
+  text-align: center;
+  width: 100px;
+}
+
+th {
+  padding: 8.5px;
+}
+
+th.id {
+  width: 25px;
+}
+
+th.cim {
+  width: 250px;
+}
+
+th.szerzo {
+  width: 175px;
+}
+
+th.darabszam {
+  width: 80px;
+}
+
+th.ar {
+  width: 100px;
+}
+
+th.gomb {
+  width: 100px;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 0 auto;
+  align-items: center;
+}

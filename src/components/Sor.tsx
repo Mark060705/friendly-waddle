@@ -12,12 +12,12 @@ function KonyvSor({ konyv, index }: KonyvSorProps) {
 
   return (
     <tr>
-      <td>{konyv.id}</td>
-      <td>{konyv.cim}</td>
-      <td>{konyv.szerzo}</td>
-      <td>{konyv.darabszam}</td>
-      <td>{konyv.ar}</td>
-      <td>
+      <td className="id">{konyv.id}</td>
+      <td className="cim">{konyv.cim}</td>
+      <td className="szerzo">{konyv.szerzo}</td>
+      <td className="darabszam">{konyv.darabszam}</td>
+      <td className="ar">{konyv.ar}</td>
+      <td className="gomb">
         <button type="button" onClick={() => konyvTorlese(konyv.id)}>
           Törlés
         </button>

@@ -8,12 +8,12 @@ function KonyvTabla() {
     <table>
       <thead>
         <tr>
-          <th>Index</th>
-          <th>Cím</th>
-          <th>Szerző</th>
-          <th>Darabszám</th>
-          <th>Ár</th>
-          <th></th>
+          <th className="id">Index</th>
+          <th className="cim">Cím</th>
+          <th className="szerzo">Szerző</th>
+          <th className="darabszam">Darabszám</th>
+          <th className="ar">Ár</th>
+          <th className="gomb"></th>
         </tr>
       </thead>
       <tbody>
