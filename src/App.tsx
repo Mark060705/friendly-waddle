@@ -1,15 +1,12 @@
 import './App.css'
-import Tablazat from './components/Tablazat'
-import { useTablazatContext } from './contexts/TablazatContext'
+import KonyvTabla from './components/Tablazat'
 
 function App() {
-    const { konyvek } = useTablazatContext();;
-
   return (
     <>
       <div>
         <h1>Könyvtár</h1>
-        <Tablazat konyvek={konyvek} />
+        <KonyvTabla />
       </div>
     </>
   )

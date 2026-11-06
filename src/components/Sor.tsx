@@ -1,14 +1,14 @@
 import type { KonyvTipus } from "../adatok";
-import { useTablazatContext } from "../contexts/TablazatContext";
+import { useKonyvContext } from "../contexts/TablazatContext";
 
 
-interface SorProps {
+interface KonyvSorProps {
   konyv: KonyvTipus;
   index: number;
 }
 
-function Sor({ konyv, index }: SorProps) {
-    const { allapotKezelo } = useTablazatContext();
+function KonyvSor({ konyv, index }: KonyvSorProps) {
+    const { konyvTorlese } = useKonyvContext();
 
   return (
     <tr>
@@ -17,8 +17,13 @@ function Sor({ konyv, index }: SorProps) {
       <td>{konyv.szerzo}</td>
       <td>{konyv.darabszam}</td>
       <td>{konyv.ar}</td>
+      <td>
+        <button type="button" onClick={() => konyvTorlese(konyv.id)}>
+          Törlés
+        </button>
+      </td>
     </tr>
   );
 }
 
-export default Sor;
+export default KonyvSor;

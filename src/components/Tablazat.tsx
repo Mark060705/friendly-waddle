@@ -1,11 +1,9 @@
-import type { KonyvTipus } from "../adatok";
-import Sor from "./Sor";
+import { useKonyvContext } from "../contexts/TablazatContext";
+import KonyvSor from "./Sor";
 
-interface TablazatProps {
-  konyvek: KonyvTipus[];
-}
+function KonyvTabla() {
+  const { konyvek } = useKonyvContext();
 
-function Tablazat({ konyvek }: TablazatProps) {
   return (
     <table>
       <thead>
@@ -15,15 +13,16 @@ function Tablazat({ konyvek }: TablazatProps) {
           <th>Szerző</th>
           <th>Darabszám</th>
           <th>Ár</th>
+          <th>Művelet</th>
         </tr>
       </thead>
       <tbody>
         {konyvek.map((konyv, index) => (
-          <Sor key={konyv.id} konyv={konyv} index={index} />
+          <KonyvSor key={konyv.id} konyv={konyv} index={index} />
         ))}
       </tbody>
     </table>
   );
 }
 
-export default Tablazat;
+export default KonyvTabla;

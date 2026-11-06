@@ -3,45 +3,40 @@ import { KONYVEK, type KonyvTipus } from "../adatok";
 
 
 
-interface TablazatContextValue {
-    allapotKezelo: (index: number, newKonyv: KonyvTipus) => void;
+interface KonyvContextValue {
     konyvek: KonyvTipus[];
+    konyvTorlese: (id: number) => void;
 }
 
-export const TablazatContext = createContext<TablazatContextValue | undefined>(undefined);
+export const KonyvContext = createContext<KonyvContextValue | undefined>(undefined);
 
 
-interface TablazatProviderProps {
+interface KonyvProviderProps {
   children: ReactNode;
 }
 
-export function TablazatProvider({ children }: TablazatProviderProps) {
+export function KonyvProvider({ children }: KonyvProviderProps) {
 
-    const [konyvek, setKonyvek] = useState<KonyvTipus[]>(KONYVEK);    
-  
-    function allapotKezelo(index: number, newKonyv: KonyvTipus) {
-        //
-        const updatedKonyvek: KonyvTipus[] = [...konyvek];
-        updatedKonyvek[index] = newKonyv;
-        setKonyvek(updatedKonyvek);
+    const [konyvek, setKonyvek] = useState<KonyvTipus[]>(KONYVEK);
+
+    function konyvTorlese(id: number) {
+        setKonyvek((elozoKonyvek) => elozoKonyvek.filter((konyv) => konyv.id !== id));
     }
 
   return (
-    <TablazatContext.Provider value={{ allapotKezelo, konyvek }}>
+    <KonyvContext.Provider value={{ konyvek, konyvTorlese }}>
       {children}
-    </TablazatContext.Provider>
+    </KonyvContext.Provider>
   )
 }
 
-// Custom hook to use the TablazatContext
+export function useKonyvContext() {
 
-export function useTablazatContext() {
-
-  const context = useContext(TablazatContext);
+  const context = useContext(KonyvContext);
 
     if (context === undefined) {
         throw new Error(
-            "useTablazatContext must be used within a TablazatProvider",
+            "useKonyvContext must be used within a KonyvProvider",
         );
     }
     return context;
