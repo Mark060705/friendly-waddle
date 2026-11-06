@@ -12,7 +12,7 @@ function KonyvSor({ konyv, index }: KonyvSorProps) {
 
   return (
     <tr>
-      <td>{index + 1}</td>
+      <td>{konyv.id}</td>
       <td>{konyv.cim}</td>
       <td>{konyv.szerzo}</td>
       <td>{konyv.darabszam}</td>

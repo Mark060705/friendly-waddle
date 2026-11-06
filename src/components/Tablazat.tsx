@@ -13,7 +13,7 @@ function KonyvTabla() {
           <th>Szerző</th>
           <th>Darabszám</th>
           <th>Ár</th>
-          <th>Művelet</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
